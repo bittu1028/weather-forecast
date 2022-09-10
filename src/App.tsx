@@ -6,7 +6,7 @@ import Header from './components/header/Header';
 import Weather from './components/weather/Weather';
 import { getWeather } from './services/weatherService';
 import { City, CurrentWeather } from './models/weather.model';
-import Forecast from './components/forecast/forecast';
+import Forecast from './components/forecast/Forecast';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/variable';
 

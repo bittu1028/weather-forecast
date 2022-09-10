@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import Forecast from "../forecast/forecast";
+import Forecast from "../forecast/Forecast";
 import StyledSearchBox, { StyledButton, StyledHeaderContainer, StyledHeaderWrapper, StyledLogo } from "./StyledHeader";
 
 type HeaderProps = {

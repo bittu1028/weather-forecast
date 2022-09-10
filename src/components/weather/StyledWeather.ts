@@ -8,7 +8,6 @@ export const StyledWeatherContainer = styled.div`
     display: flex;
     align-items: center;
     margin-top: ${props => props.theme.ms};
-    // @include animation(fadein, .5s);
 
     @media ${device.mobile} {
       flex-direction: column;

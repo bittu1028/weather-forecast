@@ -1,6 +1,7 @@
 import React from 'react';
 import { weatherbitIcons } from '../../helpers/icons';
 import { CurrentWeather } from '../../models/weather.model';
+import { StyledForecastContainer, StyledForecastDate, StyledForecastItem, StyledForecastTemp } from './StyledForecast';
 
 interface IForeCast {
     forecast: CurrentWeather[];
@@ -19,23 +20,22 @@ const Forecast = ({ forecast, isCelcius=true } : IForeCast) => {
   };
 
   return (
-    <div className="forecast">
+    <StyledForecastContainer>
       {forecast.map((data:CurrentWeather, index: number) => {
         const dayCode = new Date(data.time).getDay();
         return index !== 0 && (
-          <div 
-              className="forecast__item"
+          <StyledForecastItem 
               key={data.ts}
           >
             {/* <i className={`wi ${weatherbitIcons[data.weather.icon]}`}></i> */}
-            <h5 className="forecast-date">{day[dayCode]}</h5>
-            <h2 className="forecast-temp">
+            <StyledForecastDate>{day[dayCode]}</StyledForecastDate>
+            <StyledForecastTemp>
               {isCelcius ? data.currentTemp.temp : Math.round((data.currentTemp.temp * (9 / 5)) + 32)}<span>°</span>
-            </h2>
-          </div>
+            </StyledForecastTemp>
+          </StyledForecastItem>
         );
       })}
-    </div>
+    </StyledForecastContainer>
   );
 };
 
