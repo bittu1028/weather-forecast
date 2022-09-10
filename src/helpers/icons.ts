@@ -1,4 +1,4 @@
-export const  weatherbitIcons = {
+export const  weatherbitIcon : any = {
     a01d: 'wi-day-cloudy-windy',
     a01n: 'wi-night-alt-cloudy-windy',
     a02d: 'wi-day-cloudy-windy',
@@ -65,7 +65,7 @@ export const  weatherbitIcons = {
     u00n: 'wi-cloudy-windy'
   };
   
-  export const wiIcons = {
+  export const wiIcons:any = {
     '01d': 'wi-day-sunny',
     '01n': 'wi-night-clear',
     '02d': 'wi-day-sunny-overcast',

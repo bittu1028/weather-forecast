@@ -31,6 +31,7 @@ const Weather = ({
   return (
     <StyledWeatherContainer>
       <StyledWeatherWrapper>
+        <img src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt="Icon" />
         {/* <i className={`wi ${weatherbitIcons[weatherIconCode]}`} /> */}
         <TemperatureContainer>
           <StyledHeader>

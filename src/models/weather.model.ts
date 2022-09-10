@@ -70,6 +70,7 @@ export interface Coord {
 export interface CurrentWeather {
   currentTemp: Main;
   ts: number;
+  icon: string;
   wind: Wind;
   weatherInfo: string;
   time: string;

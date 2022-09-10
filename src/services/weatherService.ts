@@ -31,6 +31,7 @@ export const getWeather = async (location:string) => {
         ts : item.dt,
         wind : item.wind,
         weatherInfo : item.weather[0].main,
+        icon : item.weather[0].icon,
         time : item.dt_txt,
       }
     ));
