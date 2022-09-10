@@ -1,24 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Header from './components/header/Header';
+import Weather from './components/weather/Weather';
+
 
 function App() {
+
+  const changeLocationHandler = (location: string) => {
+    setCurrentLocationName(location);
+  };
+  
+  const onSearchWeather = (location: string) => {
+    // setCurrentLocationName(location);
+  };
+  
+  const [currentLocationName, setCurrentLocationName] = useState<string>("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+         <Header
+            title="testing"  
+            onSearchWeather={onSearchWeather}
+            onChangeCountry={changeLocationHandler}
+          />
+          <Weather />
     </div>
   );
 }
