@@ -1,15 +1,9 @@
-import React, { useState, useEffect } from 'react';
-
-// import Wrapper from './Wrapper';
-
-import { getWeather } from '../../services/weatherService';
-
-import StyledWeather from './StyledWeather';
-import { weatherbitIcons } from '../../helpers/icons';
+import React from 'react';
 import { City, CurrentWeather } from '../../models/weather.model';
+import { H2, H4, StyledHeader, StyledLocation, StyledTemperatureInfoContainer, StyledWeatherContainer, StyledWeatherWrapper, TemperatureContainer } from './StyledWeather';
 
  
-interface Weather {
+interface WeatherProp {
   onToggle: () => void;
   weather: CurrentWeather;
   isCelcius?: boolean;
@@ -21,27 +15,24 @@ const Weather = ({
   weather, 
   isCelcius = true, 
   cityInfo
-}: Weather)  => {
+}: WeatherProp)  => {
   const {
     currentTemp,
     weatherInfo,
     time,
     wind,
-  
   } = weather;
-
-
 
   const countryFlagsUrl = 'https://www.countryflags.io/';
 
   return (
-    <div className="weather">
-      <div className="weather-wrapper">
+    <StyledWeatherContainer>
+      <StyledWeatherWrapper>
         {/* <i className={`wi ${weatherbitIcons[weatherIconCode]}`} /> */}
-        <div className="temperature-control">
-          <h1 className="weather-temp">
+        <TemperatureContainer>
+          <StyledHeader>
             {isCelcius ? `${currentTemp?.temp} °C` : `${currentTemp?.temp} °F`} 
-          </h1>
+          </StyledHeader>
             <div 
                 className="temperature-toggle" 
                 onClick={onToggle}
@@ -51,24 +42,24 @@ const Weather = ({
             >
               <span>{isCelcius ? '°F' : '°C' }</span>
             </div>
-        </div>
-      </div>
-      <div className="temperature-info">
-        <div className="location">
-          <h2>{cityInfo?.name}, {cityInfo?.country}</h2>
+        </TemperatureContainer>
+      </StyledWeatherWrapper>
+      <StyledTemperatureInfoContainer>
+        <StyledLocation>
+          <H2>{cityInfo?.name}, {cityInfo?.country}</H2>
           <img src={`${countryFlagsUrl}/${cityInfo?.country}/shiny/64.png`} alt=""/>
-        </div>
-        <h4 style={{textTransform: 'capitalize'}}>
+        </StyledLocation>
+        <H4>
           <span>Timezone:</span> {cityInfo?.country}
-        </h4>
-        <h4 style={{textTransform: 'capitalize'}}>
+        </H4>
+        <H4>
           <span>Weather:</span> {weatherInfo}
-        </h4>
-        <h4><span>Wind Speed:</span> {wind.speed} km/h</h4>
-        <h4><span>Humidity:</span> {currentTemp?.humidity}%</h4>
-        <h4><span>Date:</span> {time}</h4>
-      </div>
-    </div>
+        </H4>
+        <H4><span>Wind Speed:</span> {wind.speed} km/h</H4>
+        <H4><span>Humidity:</span> {currentTemp?.humidity}%</H4>
+        <H4><span>Date:</span> {time}</H4>
+      </StyledTemperatureInfoContainer>
+    </StyledWeatherContainer>
   );
 }
 

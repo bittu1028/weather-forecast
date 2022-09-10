@@ -7,6 +7,8 @@ import Weather from './components/weather/Weather';
 import { getWeather } from './services/weatherService';
 import { City, CurrentWeather } from './models/weather.model';
 import Forecast from './components/forecast/forecast';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './styles/variable';
 
 function App() {
   const [isSearching, setIssearching] = useState<boolean>(true);
@@ -75,6 +77,7 @@ function App() {
 
   return (
     <div className="App">
+      <ThemeProvider theme={theme}>
          <Header
               isSearching={isSearching}
               onChange={onSearchQueryChange}
@@ -99,6 +102,8 @@ function App() {
               )}
           </div>
           {/* <Weather /> */}
+    </ThemeProvider>
+
     </div>
   );
 }
