@@ -1,6 +1,7 @@
+import { List, Root } from "../models/weather.model";
 
 const MAPBOX_BASE = 'https://api.mapbox.com/geocoding/v5/mapbox.places/';
-const WEATHER_BASE = 'https://api.openweathermap.org/data/2.5/weather?q=Sydney&appid=450a9d622a56bff861d328ffbea10a4b&exclude=minutely,hourly,alerts&units=metric';
+const WEATHER_BASE = 'https://api.openweathermap.org/data/2.5/forecast?q=Sydney&appid=450a9d622a56bff861d328ffbea10a4b&units=metric&exclude=hourly&cnt=5';
 
 
 
@@ -22,17 +23,16 @@ export const getGeocode = async (location:string) => {
 }
 
 export const getWeather = async (location:string) => {
-   
-  
     const URL = WEATHER_BASE
-  
     const weatherResult = await fetch(URL).then(data => data.json()).then(result => result);
-  
-    const currentTemp = weatherResult.current.temp;
-    const todayWeather = weatherResult.daily[0];
-    const weatherMain = todayWeather.weather[0].main;
-    const tempMax = todayWeather.temp.max;
-    const tempMin = todayWeather.temp.min;
-  
-    return [{ currentTemp, weatherMain, tempMax, tempMin }];
-  }
+    const transformList  = weatherResult?.list.map((item: List) => (
+      { 
+        currentTemp : item.main,
+        ts : item.dt,
+        wind : item.wind,
+        weatherInfo : item.weather[0].main,
+        time : item.dt_txt,
+      }
+    ));
+    return {city: weatherResult.city, list: transformList};
+}

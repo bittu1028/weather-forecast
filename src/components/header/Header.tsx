@@ -1,38 +1,65 @@
-import React from "react";
-import StyledSearchBox from "./StyledHeader";
+import React, { useRef } from 'react';
 
 type HeaderProps = {
-    title?: string;
-    onChangeCountry: (country: string) => void;
-    onSearchWeather: (country: string) => void;
-};
+    onChange:  (e:any) => void;
+    onKeyDown:  (e:any) => void;
+    searchQuery: string;
+    isSearching: boolean;
+    onSearchWeather:  () => void;
+}
 
-export const Header = ({
-    title,
-    onChangeCountry,
-    onSearchWeather
+const Header = ({ 
+  onChange, 
+  onKeyDown, 
+  searchQuery, 
+  onSearchWeather,
+  isSearching 
 }: HeaderProps) => {
+  const header = useRef(null);
+  const onFocusChange = (e:any) => {
+    e.target.select();
+  };
+
+  const toggleSearchBar = () => {
+    // header?.current?.classList?.toggle('active');
+  };
 
   return (
-    <>
-      <StyledSearchBox>
-        <input
-          className="input"
-          placeholder="Enter your location"
-          onKeyPress={(e) => {
-            if (e.key === "Enter") {
-                onChangeCountry(e.currentTarget.value);
-            }
-          }}
-        ></input>
+    <div 
+        className="app-header"
+        ref={header}
+    >
+      <div className="header-wrapper">
+        <div className="logo">
+          <h1>Kaulapan</h1>
+        </div>
+        <div 
+            className="search-toggle" 
+            onClick={toggleSearchBar}
+        />
+        <div className="field-wrapper">
+          <div className="text-field-wrapper">
+            <input 
+                className="form-control"
+                onChange={onChange}
+                onFocus={onFocusChange}
+                onKeyDown={onKeyDown}
+                placeholder="Search for city, country"
+                readOnly={isSearching}
+                type="text" 
+                value={searchQuery}
+            />
+          </div>
           <button 
               className="search-button"
-              disabled={false}
+              disabled={isSearching}
+              onClick={onSearchWeather}
           >
-              Search
+            Search
           </button>
-      </StyledSearchBox>
-    </>
+        </div>
+      </div>
+    </div>
   );
 };
 

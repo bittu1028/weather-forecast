@@ -5,97 +5,70 @@ import React, { useState, useEffect } from 'react';
 import { getWeather } from '../../services/weatherService';
 
 import StyledWeather from './StyledWeather';
+import { weatherbitIcons } from '../../helpers/icons';
+import { City, CurrentWeather } from '../../models/weather.model';
 
+ 
 interface Weather {
-  feels_like: number;
-  humidity: number;
-  pressure: number;
-  temp: number;
-  temp_max: number;
-  temp_min: number;
+  onToggle: () => void;
+  weather: CurrentWeather;
+  isCelcius?: boolean;
+  cityInfo?: City;
 }
 
-interface Weather {
+const Weather = ({
+  onToggle, 
+  weather, 
+  isCelcius = true, 
+  cityInfo
+}: Weather)  => {
+  const {
+    currentTemp,
+    weatherInfo,
+    time,
+    wind,
+  
+  } = weather;
 
-}
 
-const Weather = () => {
-  // const [inputLocation, setInputLocation] = useState('Embu');
-  const [currentDate, setCurrentDate] = useState('');
-  const [currentWeather, setCurrentWeather] = useState<Weather | null>(null);
-  // const [location, setLocation] = useState({
-  //   city: '',
-  //   state: '',
-  //   country: ''
-  // });
-  // const [weather, setWeather] = useState({
-  //   currentTemp: 0,
-  //   weatherMain: '',
-  //   tempMax: 0,
-  //   tempMin: 0
-  // });
 
-  useEffect(() => {
-    fetchData('São Paulo').then((data) => {
-        console.log(data);
-        // setCurrentWeather(data)
-    });
-  }, []);
-
-  async function fetchData(newLocation:string) {
-    const now = new Date();
-    setCurrentDate(dateBuilder(now));
-    try {
-      const response = await getWeather(newLocation);
-      return response;
-    }
-    catch(e) {
-        return "Something Went Wrong"
-    }
-   
-  }
-
-  const setBackground = () => {
-    const now = new Date();
-    const hour = now.getHours();
-    if (hour <= 7 || hour > 18) {
-      return 'blue';
-    }
-    if (hour > 7 && hour <= 15) {
-      return 'green';
-    }
-    return 'orange';
-  }
-
-  const dateBuilder = (d:Date) => {
-    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
-    const day = days[d.getDay()];
-    const date = d.getDate();
-    const month = months[d.getMonth()];
-    const year = d.getFullYear();
-
-    return `${day} ${date} ${month} ${year}`;
-  }
-
-  // const handleInputLocation = (e) => {
-  //   e.preventDefault();
-  //   setInputLocation(e.target.value);
-  // }
-
-  // const getForecast = (e) => {
-  //   e.preventDefault();
-  //   fetchData(inputLocation).then(([newWeather, placeName]) => {
-  //     setWeather(newWeather);
-  //     setLocation(placeName);
-  //   });
-  // }
+  const countryFlagsUrl = 'https://www.countryflags.io/';
 
   return (
-    <StyledWeather bgImage={setBackground()}>
-      {/* <Wrapper states={{ location, currentDate, weather }} handleInput={handleInputLocation} handleSubmit={getForecast} /> */}
-    </StyledWeather>
+    <div className="weather">
+      <div className="weather-wrapper">
+        {/* <i className={`wi ${weatherbitIcons[weatherIconCode]}`} /> */}
+        <div className="temperature-control">
+          <h1 className="weather-temp">
+            {isCelcius ? `${currentTemp?.temp} °C` : `${currentTemp?.temp} °F`} 
+          </h1>
+            <div 
+                className="temperature-toggle" 
+                onClick={onToggle}
+                style={{
+                  color: isCelcius ? 'rgba(255, 255, 255, .7)' : '#adff2f'
+                }}
+            >
+              <span>{isCelcius ? '°F' : '°C' }</span>
+            </div>
+        </div>
+      </div>
+      <div className="temperature-info">
+        <div className="location">
+          <h2>{cityInfo?.name}, {cityInfo?.country}</h2>
+          <img src={`${countryFlagsUrl}/${cityInfo?.country}/shiny/64.png`} alt=""/>
+        </div>
+        <h4 style={{textTransform: 'capitalize'}}>
+          <span>Timezone:</span> {cityInfo?.country}
+        </h4>
+        <h4 style={{textTransform: 'capitalize'}}>
+          <span>Weather:</span> {weatherInfo}
+        </h4>
+        <h4><span>Wind Speed:</span> {wind.speed} km/h</h4>
+        <h4><span>Humidity:</span> {currentTemp?.humidity}%</h4>
+        <h4><span>Date:</span> {time}</h4>
+      </div>
+    </div>
   );
 }
 
