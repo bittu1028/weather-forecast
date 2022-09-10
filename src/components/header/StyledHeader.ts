@@ -2,48 +2,73 @@ import styled from 'styled-components';
 
 const StyledSearchBox = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 50px 15px 15px;
-
-  & input {
+  width: 50%;
+  @media (max-width: $mobile) {
     width: 100%;
-    max-width: 280px;
-    padding: 10px 15px;
-    border: none;
-    outline: none;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 16px 0px 16px 0px;
-    border-bottom: 3px solid rgba(0, 0, 0, 0.3);
-
-    color: #313131;
-    font-size: 20px;
-    transition: all 0.3s ease-out;
-    &:focus {
-      background-color: rgba(255, 255, 255, 0.6);
-      border-color: rgba(0, 0, 0, 0.6);
-    }
-  }
-  
-  & button {
-    margin: 0 1.2rem;
-    background: greenyellow;
-    color: #1a1a1a;
-    
-    &:hover {
-      background: darken(greenyellow, 10%);
-    }
-
+    position: absolute;
+    right: 0;
+    visibility: hidden;
+    top: 60px;
+    padding: 20px;
+    opacity: 0;
+    background: darken($purple, 10%);
   }
 `
 
+
 export const StyledButton = styled.button`
-margin: 0 1.2rem;
+margin: 0 $s-size;
 background: greenyellow;
 color: #1a1a1a;
 
 &:hover {
   background: darken(greenyellow, 10%);
+}
+`
+
+export const StyledHeaderContainer = styled.div`
+width: 100%;
+height: 80px;
+background: #2d2d73;
+position: fixed;
+top: 0;
+z-index: 10;
+
+@media (max-width: $mobile) {
+  height: 60px;
+}
+`
+
+export const StyledLogo = styled.div`
+  h1 {
+    margin: 0;
+  
+    @media (max-width: $mobile) {
+      font-size: 2.5rem;
+    }
+  } 
+`
+
+export const StyledHeaderWrapper = styled.div`
+width: 70%;
+height: 100%;
+margin: auto;
+display: flex;
+align-items: center;
+justify-content: space-between;
+position: relative;
+
+@media (min-width: $desktop) {
+  width: 1140px;
+}
+
+@media (max-width: $tablet) {
+  width: 85%;
+}
+
+@media (max-width: $mobile) {
+  width: 100%;
+  padding: 0 $l-size;
 }
 `
 
