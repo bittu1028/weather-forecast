@@ -8,7 +8,7 @@ import { getWeather } from './services/weatherService';
 import { City, CurrentWeather } from './models/weather.model';
 import Forecast from './components/forecast/Forecast';
 import { ThemeProvider } from 'styled-components';
-import { theme } from './styles/variable';
+import { theme } from './styles/theme';
 
 function App() {
   const [isSearching, setIssearching] = useState<boolean>(true);

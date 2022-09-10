@@ -1,5 +1,4 @@
 import React from "react";
-import { wiIcons } from "../../helpers/icons";
 import { CurrentWeather } from "../../models/weather.model";
 import {
   StyledForecastContainer,
