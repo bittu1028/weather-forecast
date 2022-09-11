@@ -29,10 +29,6 @@ const Header = ({
   return (
     <StyledHeaderContainer ref={header}>
       <StyledHeaderWrapper>
-        <StyledLogo>
-          <h1>Weather Forecast</h1>
-        </StyledLogo>
-        <div className="search-toggle" onClick={toggleSearchBar} />
         <StyledSearchBox>
           <input
             className="form-control"
@@ -44,13 +40,6 @@ const Header = ({
             type="text"
             value={searchQuery}
           />
-          <StyledButton
-            className="search-button"
-            disabled={isSearching}
-            onClick={onSearchWeather}
-          >
-            Search
-          </StyledButton>
         </StyledSearchBox>
       </StyledHeaderWrapper>
     </StyledHeaderContainer>

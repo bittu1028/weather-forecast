@@ -8,6 +8,12 @@ export const StyledWeatherContainer = styled.div`
     display: flex;
     align-items: center;
     margin-top: ${props => props.theme.ms};
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 10%) 1px 1px 3px;
+    border-radius: 15px;
+    flex-direction: column;
+    padding: 1.5rem 2rem;
+    color: #000;
 
     @media ${device.mobile} {
       flex-direction: column;
@@ -25,14 +31,15 @@ export const StyledWeatherContainer = styled.div`
     }
 `
 
-export const StyledWeatherWrapper = styled.div`
+export const StyledTemperatureWrapper = styled.div`
     display: flex;
     flex-direction: column;
     padding: 0 ${props => props.theme.xxl};
     text-align: center;
+    align-items: center;
     position: relative;
 
-    @media (max-width: $tablet) {
+    @media ${device.tablet} {
       padding-left: 0;
       padding-right: ${props => props.theme.ms};
     }
@@ -41,6 +48,27 @@ export const StyledWeatherWrapper = styled.div`
       padding: 0;
       width: 100%;
       flex-direction: row;
+      align-items: center;
+    }
+`
+export const  StyledImage = styled.img`
+    height: 100px;
+    width: 100px;
+`
+
+export const StyledWeatherWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+
+    @media ${device.tablet} {
+      padding-left: 0;
+      padding-right: ${props => props.theme.ms};
+    }
+
+    @media ${device.mobile} {
+      padding: 0;
+      width: 100%;
+      flex-direction: column;
       align-items: center;
     }
 `
@@ -62,6 +90,7 @@ export const StyledHeader = styled.div`
       
   @media ${device.mobile} {
     order: 1;
+    font-size: ${props => props.theme.ms};
   }
 `
 

@@ -31,11 +31,12 @@ const Forecast = ({ forecast, isCelcius = true }: IForeCast) => {
         return (
           index !== 0 && (
             <StyledForecastItem key={data.ts}>
-              <img src={`http://openweathermap.org/img/w/${data.icon}.png`} alt="Icon" />
               <StyledForecastDate>{day[dayCode]}</StyledForecastDate>
+              <img src={`http://openweathermap.org/img/w/${data.icon}.png`} alt="Icon" />
+              <StyledForecastDate>{data.weatherInfo}</StyledForecastDate>
               <StyledForecastTemp>
                 {isCelcius
-                  ? data?.currentTemp?.temp
+                  ? `${Math.round(data?.currentTemp?.temp_max)}/${Math.round(data?.currentTemp?.temp_min)}`
                   : Math.round(data.currentTemp.temp * (9 / 5) + 32)}
                 <span>°</span>
               </StyledForecastTemp>

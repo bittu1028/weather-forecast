@@ -7,8 +7,10 @@ import {
   StyledLocation,
   StyledTemperatureInfoContainer,
   StyledWeatherContainer,
+  StyledTemperatureWrapper,
   StyledWeatherWrapper,
   TemperatureContainer,
+  StyledImage,
 } from "./StyledWeather";
 
 interface WeatherProp {
@@ -25,13 +27,20 @@ const Weather = ({
   cityInfo,
 }: WeatherProp) => {
   const { currentTemp, weatherInfo, time, wind } = weather;
-
-  const countryFlagsUrl = "https://www.countryflags.io/";
-
   return (
     <StyledWeatherContainer>
+      <StyledLocation>
+        <H2>
+          {cityInfo?.name}, {cityInfo?.country}
+        </H2>
+      </StyledLocation>
       <StyledWeatherWrapper>
-        <img src={`http://openweathermap.org/img/w/${weather.icon}.png`} alt="Icon" />
+
+      <StyledTemperatureWrapper>
+        <StyledImage
+          src={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`}
+          alt="Icon"
+        />
         {/* <i className={`wi ${weatherbitIcons[weatherIconCode]}`} /> */}
         <TemperatureContainer>
           <StyledHeader>
@@ -47,17 +56,8 @@ const Weather = ({
             <span>{isCelcius ? "°F" : "°C"}</span>
           </div>
         </TemperatureContainer>
-      </StyledWeatherWrapper>
+      </StyledTemperatureWrapper>
       <StyledTemperatureInfoContainer>
-        <StyledLocation>
-          <H2>
-            {cityInfo?.name}, {cityInfo?.country}
-          </H2>
-          <img
-            src={`${countryFlagsUrl}/${cityInfo?.country}/shiny/64.png`}
-            alt=""
-          />
-        </StyledLocation>
         <H4>
           <span>Timezone:</span> {cityInfo?.country}
         </H4>
@@ -70,10 +70,9 @@ const Weather = ({
         <H4>
           <span>Humidity:</span> {currentTemp?.humidity}%
         </H4>
-        <H4>
-          <span>Date:</span> {time}
-        </H4>
       </StyledTemperatureInfoContainer>
+      </StyledWeatherWrapper>
+
     </StyledWeatherContainer>
   );
 };
