@@ -1,13 +1,7 @@
 import React, { useRef } from "react";
+import { IHeaderProps } from "./Header.types";
 import StyledSearchBox, { StyledButton, StyledHeaderContainer, StyledHeaderWrapper, StyledLogo } from "./StyledHeader";
 
-type HeaderProps = {
-  onChange: (e: any) => void;
-  onKeyDown: (e: any) => void;
-  searchQuery: string;
-  isSearching: boolean;
-  onSearchWeather: () => void;
-};
 
 const Header = ({
   onChange,
@@ -15,15 +9,12 @@ const Header = ({
   searchQuery,
   onSearchWeather,
   isSearching,
-}: HeaderProps) => {
+}: IHeaderProps) => {
   const header = useRef(null);
   const onFocusChange = (e: any) => {
     e.target.select();
   };
 
-  const toggleSearchBar = () => {
-    // header?.current?.classList?.toggle('active');
-  };
 
   return (
     <StyledHeaderContainer ref={header}>

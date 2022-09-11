@@ -2,6 +2,41 @@ import styled from "styled-components";
 import { device } from "../../utils/device";
 import {ReactComponent as SearchIconSvg} from '../../asset/icon/search.svg';
 
+
+
+
+export const StyledHeaderContainer = styled.div`
+  width: 100%;
+  height: 80px;
+
+  @media ${device.mobile} {
+    height: 60px;
+  }
+`;
+
+export const StyledHeaderWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  @media ${device.desktop} {
+    width: 1140px;
+  }
+
+  @media ${device.tablet} {
+    width: 85%;
+  }
+
+  @media ${device.mobile} {
+    width: 100%;
+    padding: 0 $l-size;
+  }
+`;
+
+
 const StyledSearchBox = styled.div`
   display: flex;
   width: 100%;
@@ -47,41 +82,10 @@ export const StyledButton = styled.button`
     }
 `;
 
-export const StyledHeaderContainer = styled.div`
-  width: 100%;
-  height: 80px;
-
-  @media ${device.mobile} {
-    height: 60px;
-  }
-`;
 
 export const StyledLogo = styled(SearchIconSvg)`
   margin-left: 1.2rem;
   fill: #4a6fa1;
-`;
-
-export const StyledHeaderWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  // justify-content: space-between;
-  position: relative;
-
-  @media ${device.desktop} {
-    width: 1140px;
-  }
-
-  @media ${device.tablet} {
-    width: 85%;
-  }
-
-  @media ${device.mobile} {
-    width: 100%;
-    padding: 0 $l-size;
-  }
 `;
 
 export default StyledSearchBox;

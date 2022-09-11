@@ -1,5 +1,6 @@
 import React from "react";
 import { CurrentWeather } from "../../models/weather.model";
+import { IForeCastProps } from "./Forecast.types";
 import {
   StyledForecastContainer,
   StyledForecastDate,
@@ -8,12 +9,8 @@ import {
 } from "./StyledForecast";
 
 
-interface IForeCast {
-  forecast: CurrentWeather[];
-  isCelcius?: boolean;
-}
 
-const Forecast = ({ forecast, isCelcius = true }: IForeCast) => {
+const Forecast = ({ forecast, isCelcius = true }: IForeCastProps) => {
   const day: any = {
     0: "SUN",
     1: "MON",

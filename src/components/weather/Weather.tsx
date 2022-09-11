@@ -1,5 +1,4 @@
 import React from "react";
-import { City, CurrentWeather } from "../../models/weather.model";
 import {
   H2,
   H4,
@@ -12,13 +11,8 @@ import {
   TemperatureContainer,
   StyledImage,
 } from "./StyledWeather";
+import { WeatherProp } from "./Weather.types";
 
-interface WeatherProp {
-  onToggle: () => void;
-  weather: CurrentWeather;
-  isCelcius?: boolean;
-  cityInfo?: City;
-}
 
 const Weather = ({
   onToggle,
