@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import Forecast from "../forecast/Forecast";
 import StyledSearchBox, { StyledButton, StyledHeaderContainer, StyledHeaderWrapper, StyledLogo } from "./StyledHeader";
 
 type HeaderProps = {
@@ -28,7 +27,7 @@ const Header = ({
 
   return (
     <StyledHeaderContainer ref={header}>
-      <StyledHeaderWrapper>
+        <StyledHeaderWrapper>
         <StyledSearchBox>
           <input
             className="form-control"
@@ -40,6 +39,11 @@ const Header = ({
             type="text"
             value={searchQuery}
           />
+          <StyledButton onClick={onSearchWeather}>
+            <StyledLogo>
+              Weather Forecast
+            </StyledLogo>
+          </StyledButton>
         </StyledSearchBox>
       </StyledHeaderWrapper>
     </StyledHeaderContainer>

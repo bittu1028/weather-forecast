@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import { device } from "../../utils/device";
+import {ReactComponent as SearchIconSvg} from '../../asset/icon/search.svg';
 
 const StyledSearchBox = styled.div`
   display: flex;
   width: 100%;
+  align-items: center;
+  justify-content: center;
   padding: 0 40px 0 40px;
   border-radius: 26px;
   color: #000;
@@ -35,13 +38,13 @@ const StyledSearchBox = styled.div`
 `;
 
 export const StyledButton = styled.button`
-  margin: 0 ${props => props.theme.ss};
-  background: greenyellow;
-  color: #1a1a1a;
-
-  &:hover {
-    background: yellow;
-  }
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    height: 100%;
+    display: contents;
+    &:hover svg {
+    }
 `;
 
 export const StyledHeaderContainer = styled.div`
@@ -53,14 +56,9 @@ export const StyledHeaderContainer = styled.div`
   }
 `;
 
-export const StyledLogo = styled.div`
-  h1 {
-    margin: 0;
-
-    @media ${device.mobile} {
-      font-size: 2.5rem;
-    }
-  }
+export const StyledLogo = styled(SearchIconSvg)`
+  margin-left: 1.2rem;
+  fill: #4a6fa1;
 `;
 
 export const StyledHeaderWrapper = styled.div`
