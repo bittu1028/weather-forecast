@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { IHeaderProps } from "./Header.types";
-import {StyledSearchBox, StyledButton, StyledHeaderContainer, StyledHeaderWrapper, StyledLogo, StyledInput } from "./StyledHeader";
+import {StyledHeaderContainer, StyledHeaderWrapper } from "./StyledHeader";
+import SearchBox from '../../shared/Input/SearchBox';
 
 
 const Header = ({
@@ -19,23 +20,13 @@ const Header = ({
   return (
     <StyledHeaderContainer ref={header}>
         <StyledHeaderWrapper>
-        <StyledSearchBox>
-          <StyledInput
-            className="form-control"
-            onChange={onChange}
-            onFocus={onFocusChange}
-            onKeyDown={onKeyDown}
-            placeholder="Search for city, country"
-            readOnly={isSearching}
-            type="text"
-            value={searchQuery}
-          />
-          <StyledButton onClick={onSearchWeather}>
-            <StyledLogo>
-              Weather Forecast
-            </StyledLogo>
-          </StyledButton>
-        </StyledSearchBox>
+        <SearchBox  
+          onChange={onChange}
+          onKeyDown={onKeyDown}
+          onSubmit={onSearchWeather}
+          searchQuery={searchQuery}
+          isSearching={isSearching}
+        />
       </StyledHeaderWrapper>
     </StyledHeaderContainer>
   );
