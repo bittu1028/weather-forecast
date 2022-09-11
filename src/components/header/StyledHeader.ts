@@ -2,9 +2,6 @@ import styled from "styled-components";
 import { device } from "../../utils/device";
 import {ReactComponent as SearchIconSvg} from '../../asset/icon/search.svg';
 
-
-
-
 export const StyledHeaderContainer = styled.div`
   width: 100%;
   height: 80px;
@@ -37,7 +34,7 @@ export const StyledHeaderWrapper = styled.div`
 `;
 
 
-const StyledSearchBox = styled.div`
+export const StyledSearchBox = styled.div`
   display: flex;
   width: 100%;
   align-items: center;
@@ -47,18 +44,6 @@ const StyledSearchBox = styled.div`
   color: #000;
   background: rgb(255, 255, 255);
   box-shadow: rgb(0 0 0 / 10%) 0px 1px 3px;
-
-  & input {
-    color: #000;
-    ::placeholder,
-    ::-webkit-input-placeholder {
-      color: red;
-    }
-    :-ms-input-placeholder {
-      color: red;
-    }
-    width: 100%;
-  }
 
   @media ${device.mobile} {
     width: 100%;
@@ -71,6 +56,14 @@ const StyledSearchBox = styled.div`
     background: darken($purple, 10%);
   }
 `;
+
+export const StyledInput = styled.input`
+    color: #000;
+    ::placeholder {
+      color: green !important;
+    }
+    width: 100%;
+`
 
 export const StyledButton = styled.button`
     border: none;
@@ -88,4 +81,3 @@ export const StyledLogo = styled(SearchIconSvg)`
   fill: #4a6fa1;
 `;
 
-export default StyledSearchBox;

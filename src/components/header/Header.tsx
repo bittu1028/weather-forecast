@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { IHeaderProps } from "./Header.types";
-import StyledSearchBox, { StyledButton, StyledHeaderContainer, StyledHeaderWrapper, StyledLogo } from "./StyledHeader";
+import {StyledSearchBox, StyledButton, StyledHeaderContainer, StyledHeaderWrapper, StyledLogo, StyledInput } from "./StyledHeader";
 
 
 const Header = ({
@@ -20,7 +20,7 @@ const Header = ({
     <StyledHeaderContainer ref={header}>
         <StyledHeaderWrapper>
         <StyledSearchBox>
-          <input
+          <StyledInput
             className="form-control"
             onChange={onChange}
             onFocus={onFocusChange}
