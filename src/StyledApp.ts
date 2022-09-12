@@ -1,3 +1,6 @@
+import { createGlobalStyle } from "styled-components";
+
+export const AppStyles = createGlobalStyle`
 * {
     box-sizing: border-box;
 }
@@ -92,3 +95,4 @@ input::placeholder {
     from { opacity: 0; } 
     to { opacity: 1; }
   }
+`;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { CurrentWeather } from "../../models/weather.model";
 import { IForeCastProps } from "./Forecast.types";
 import {
@@ -45,4 +45,4 @@ const Forecast = ({ forecast, isCelcius = true }: IForeCastProps) => {
   );
 };
 
-export default Forecast;
+export default memo(Forecast);

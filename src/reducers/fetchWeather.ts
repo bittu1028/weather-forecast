@@ -38,6 +38,7 @@ export const transformWeatherData = (
   forecast: CurrentWeather[];
   cityInfo: City;
 } => {
+
   const weather = res[0] as List;
   const forecast = res[1] as Root;
 
@@ -55,7 +56,6 @@ export const transformWeatherData = (
 
   forecast?.list.forEach((item: List) => {
       const foreCastDate = new Date(item.dt * 1000).getDate();
-      console.log(foreCastDate, currentDate);
       if(foreCastDate > currentDate) {
         currentDate = foreCastDate;
         finalForecastData.push({
@@ -69,7 +69,6 @@ export const transformWeatherData = (
       }
       
   });
-
   return {
     weather: transformedCurrentWeather,
     forecast: finalForecastData,

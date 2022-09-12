@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-// import './App.css';
+import React, { useCallback, useEffect, useState } from "react";
 import Header from "../components/header/Header";
 import Weather from "../components/weather/Weather";
 import Forecast from "../components/forecast/Forecast";
@@ -23,16 +22,16 @@ function HomePage() {
     isError,
     errorMessage 
   } =
-    useSelector((state: RootState) => state.weather);
+  useSelector((state: RootState) => state.weather);
 
   const onSearchQueryChange = (e: any) => {
     const input = e.target.value.toLowerCase().trimStart();
     setSearchQuery(input);
   };
 
-  const getWeatherData = async (location: string) => {
+  const getWeatherData = useCallback(async (location: string) => {
     dispatch(fetchWeather(location));
-  };
+  }, []);
 
   useEffect(() => {
     getWeatherData("Sydney");

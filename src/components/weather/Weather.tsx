@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import {
   H2,
   H4,
@@ -71,4 +71,4 @@ const Weather = ({
   );
 };
 
-export default Weather;
+export default memo(Weather);
