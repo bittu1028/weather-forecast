@@ -27,7 +27,7 @@ const Forecast = ({ forecast, isCelcius = true }: IForeCastProps) => {
         const dayCode = new Date(data?.time).getDay();
         return (
           index !== 0 && (
-            <StyledForecastItem key={data.ts}>
+            <StyledForecastItem role="card-list-item" key={data.ts}>
               <StyledForecastDate>{day[dayCode]}</StyledForecastDate>
               <img src={`http://openweathermap.org/img/w/${data.icon}.png`} alt="Icon" />
               <StyledForecastDate>{data.weatherInfo}</StyledForecastDate>

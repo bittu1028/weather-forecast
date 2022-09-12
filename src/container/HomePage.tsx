@@ -1,52 +1,46 @@
 import React, { useEffect, useState } from "react";
-import { ThemeProvider } from "styled-components";
 // import './App.css';
 import Header from "../components/header/Header";
 import Weather from "../components/weather/Weather";
-import { getWeather } from "../services/weatherService";
-import { City, CurrentWeather } from "../models/weather.model";
 import Forecast from "../components/forecast/Forecast";
 import Loader from "../shared/loader/Loader";
+import { ErrorBoundary } from "react-error-boundary";
+import { Error, ErrorHandler } from "../shared/error/Error";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../reducers/store";
+import { fetchWeather } from "../reducers/fetchWeather";
+import { NotFoundError } from "../shared/error/NotFound";
 
 function HomePage() {
-  const [isSearching, setIssearching] = useState<boolean>(true);
-  const [currentWeather, setCurrentWeather] = useState<CurrentWeather | null>(
-    null
-  );
-  const [forecast, setForecast] = useState<CurrentWeather[]>([]);
-  const [cityInfo, setCityInfo] = useState<City | null>(null);
+  const dispatch = useDispatch<AppDispatch>();
   const [searchQuery, setSearchQuery] = useState<string>("");
   const [isCelcius, setIsCelcius] = useState<boolean>(false);
+  const { 
+    currentWeather, 
+    forecast, 
+    isLoading, 
+    cityInfo, 
+    isError,
+    errorMessage 
+  } =
+    useSelector((state: RootState) => state.weather);
 
   const onSearchQueryChange = (e: any) => {
     const input = e.target.value.toLowerCase().trimStart();
     setSearchQuery(input);
   };
 
-  useEffect(() => {
-    setIssearching(false);
-  }, []);
-
-  const fetchWeather = async (location: string) => {
-    try {
-      const data = await getWeather(location);
-      setCurrentWeather(data.list[0]);
-      setForecast(data.list);
-      setCityInfo(data.city);
-      setIssearching(false);
-    } catch (e) {
-      setIssearching(false);
-    }
+  const getWeatherData = async (location: string) => {
+    dispatch(fetchWeather(location));
   };
 
   useEffect(() => {
-    fetchWeather("Sydney");
+    getWeatherData("Sydney");
   }, []);
 
   const onSearchWeather = () => {
-    if (searchQuery.length !== 0 && !isSearching) {
-      setIssearching(true);
-      fetchWeather(searchQuery);
+    if (searchQuery.length !== 0 && !isLoading) {
+      getWeatherData(searchQuery);
     }
   };
 
@@ -62,16 +56,20 @@ function HomePage() {
 
   return (
     <>
-        {isSearching && <Loader />}
+      <ErrorBoundary FallbackComponent={Error} onError={ErrorHandler}>
+        {isLoading && <Loader />}
         <Header
-          isSearching={isSearching}
+          isSearching={isLoading}
           onChange={onSearchQueryChange}
           onKeyDown={onKeyEnter}
           onSearchWeather={onSearchWeather}
           searchQuery={searchQuery}
         />
         <div className="app-content">
-          {!isSearching && currentWeather && cityInfo && (
+          {
+            isError ? <NotFoundError errorMessage={errorMessage}/> : null
+          }
+          {!isLoading && currentWeather && cityInfo && !isError && (
             <React.Fragment>
               <Weather
                 onToggle={onToggleFahrenheit}
@@ -82,7 +80,7 @@ function HomePage() {
             </React.Fragment>
           )}
         </div>
-        {/* <Weather /> */}
+      </ErrorBoundary>
     </>
   );
 }
