@@ -40,9 +40,10 @@ const weatherSlice = createSlice({
 
       })
       .addCase(fetchWeather.rejected, (state, action) => {
+        console.log(action, 'action');
         state.isError = true;
         state.isLoading = false;
-        state.errorMessage = "Something Went Wronng";
+        state.errorMessage = 'test' ;
       });
   },
 });
