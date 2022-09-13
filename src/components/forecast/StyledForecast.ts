@@ -10,6 +10,7 @@ export const StyledForecastContainer = styled.div`
   border-radius: 15px;
   padding: 1.5rem 2rem;
   overflow: hidden;
+  margin-bottom: 20px;  
   margin-top: ${(props) => props.theme.xl};
 
   @media ${device.mobile} {
