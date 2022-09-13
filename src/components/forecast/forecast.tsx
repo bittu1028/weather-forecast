@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { CurrentWeather } from '../../models/weather.model';
-import { IForeCastProps } from './Forecast.type';
+import { Iday, IForeCastProps } from './Forecast.type';
 import {
   StyledForecastContainer,
   StyledForecastDate,
@@ -9,7 +9,7 @@ import {
 } from './StyledForecast';
 
 const Forecast = ({ forecast }: IForeCastProps) => {
-  const day: any = {
+  const day: Iday = {
     0: 'SUN',
     1: 'MON',
     2: 'TUE',

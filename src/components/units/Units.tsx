@@ -1,10 +1,6 @@
 import React, { useRef } from 'react';
 import { StyledUnits, StyledUnitsContainer } from './StyledUnits';
-
-interface IUnits {
-  changeUnitSettings: (unit:string) => void;
-  unit: string;
-}
+import { IUnits } from './Units.type';
 
 const Units = ({ changeUnitSettings, unit }: IUnits) => {
   return (
