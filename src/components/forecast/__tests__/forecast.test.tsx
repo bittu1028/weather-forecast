@@ -1,4 +1,4 @@
-// __tests__/searchBox.test.js
+// __tests__/forecast.test.tsx
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
