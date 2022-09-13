@@ -20,7 +20,6 @@ const SearchBox: React.FC<ISearch> = ({
     <>
       <StyledSearchBox>
         <StyledInput
-          className='form-control'
           onChange={onChange}
           onKeyDown={onKeyDown}
           placeholder='Search for city'
@@ -29,7 +28,7 @@ const SearchBox: React.FC<ISearch> = ({
           value={searchQuery}
         />
         <StyledButton aria-label='submit' onClick={onSubmit}>
-          <StyledLogo>Weather Forecast</StyledLogo>
+          <StyledLogo />
         </StyledButton>
       </StyledSearchBox>
     </>

@@ -18,8 +18,8 @@ body {
 button {
     font-size: 2rem;
     font-weight: bold;
-    padding: 0 $m-size;
-    margin: 0 $s-size;
+    padding: 0 ;
+    margin: 0 1.2rem;
     border: none;
 }
 
@@ -37,18 +37,9 @@ button:focus {
 
 
 input {
-    border: 1px solid rgba(255,255,255,.4) !important;
+    border: none !important;
     position: relative;
-    padding: $s-size;
-  
-    &:focus {
-      border: 1px solid rgba(255,255,255,.7) !important;
-    }
+    padding: 1.2rem;
 }
-
-  
-input::placeholder {
-    color: rgba(255,255,255,.7) !important;
-}  
 
 `;

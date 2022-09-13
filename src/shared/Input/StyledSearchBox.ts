@@ -21,7 +21,7 @@ export const StyledSearchBox = styled.div`
     top: 60px;
     padding: 20px;
     opacity: 0;
-    background: darken($purple, 10%);
+    background: rgb(255, 255, 255);
   }
 `;
 
@@ -29,6 +29,9 @@ export const StyledInput = styled.input`
   color: #000;
   ::placeholder {
     color: green !important;
+  }
+  &:focus: {
+    border: none !important
   }
   width: 100%;
 `;
