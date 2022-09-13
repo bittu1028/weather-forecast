@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo } from 'react';
 import {
   H2,
   H4,
@@ -10,8 +10,8 @@ import {
   StyledWeatherWrapper,
   TemperatureContainer,
   StyledImage,
-} from "./StyledWeather";
-import { WeatherProp } from "./Weather.types";
+} from './StyledWeather';
+import { WeatherProp } from './Weather.types';
 
 
 const Weather = ({
@@ -44,10 +44,10 @@ const Weather = ({
             className="temperature-toggle"
             onClick={onToggle}
             style={{
-              color: isCelcius ? "rgba(255, 255, 255, .7)" : "#adff2f",
+              color: isCelcius ? 'rgba(255, 255, 255, .7)' : '#adff2f',
             }}
           >
-            <span>{isCelcius ? "°F" : "°C"}</span>
+            <span>{isCelcius ? '°F' : '°C'}</span>
           </div>
         </TemperatureContainer>
       </StyledTemperatureWrapper>

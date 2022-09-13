@@ -1,4 +1,4 @@
-import { City, CurrentWeather } from "../../models/weather.model";
+import { City, CurrentWeather } from '../../models/weather.model';
 
 export interface WeatherProp {
     onToggle: () => void;

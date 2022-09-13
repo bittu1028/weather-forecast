@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { device } from "../../utils/device";
+import styled from 'styled-components';
+import { device } from '../../utils/device';
 import {ReactComponent as SearchIconSvg} from '../../asset/icon/search.svg';
 
 

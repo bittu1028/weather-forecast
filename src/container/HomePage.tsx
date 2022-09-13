@@ -1,18 +1,18 @@
-import React, { useCallback, useEffect, useState } from "react";
-import Header from "../components/header/Header";
-import Weather from "../components/weather/Weather";
-import Forecast from "../components/forecast/Forecast";
-import Loader from "../shared/loader/Loader";
-import { ErrorBoundary } from "react-error-boundary";
-import { Error, ErrorHandler } from "../shared/error/Error";
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../reducers/store";
-import { fetchWeather } from "../reducers/fetchWeather";
-import { NotFoundError } from "../shared/error/NotFound";
+import React, { useCallback, useEffect, useState } from 'react';
+import Header from '../components/header/Header';
+import Weather from '../components/weather/Weather';
+import Forecast from '../components/forecast/Forecast';
+import Loader from '../shared/loader/Loader';
+import { ErrorBoundary } from 'react-error-boundary';
+import { Error, ErrorHandler } from '../shared/error/Error';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../reducers/store';
+import { fetchWeather } from '../reducers/fetchWeather';
+import { NotFoundError } from '../shared/error/NotFound';
 
 function HomePage() {
   const dispatch = useDispatch<AppDispatch>();
-  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const [isCelcius, setIsCelcius] = useState<boolean>(false);
   const { 
     currentWeather, 
@@ -34,7 +34,7 @@ function HomePage() {
   }, []);
 
   useEffect(() => {
-    getWeatherData("Sydney");
+    getWeatherData('Sydney');
   }, []);
 
   const onSearchWeather = () => {

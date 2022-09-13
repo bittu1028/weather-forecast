@@ -35,7 +35,7 @@ const weatherSlice = createSlice({
         state.currentWeather = res.weather;
         state.forecast = res.forecast;
         state.isError = false;
-        state.errorMessage = "";
+        state.errorMessage = '';
         state.cityInfo = res.cityInfo;
         state.isLoading = false;
 

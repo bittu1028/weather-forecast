@@ -1,10 +1,10 @@
-import { City, CurrentWeather } from "../models/weather.model";
+import { City, CurrentWeather } from '../models/weather.model';
 
 export const mockCityData: City = {
   id: 2147714,
-  name: "Sydney",
+  name: 'Sydney',
   coord: { lat: -33.8679, lon: 151.2073 },
-  country: "AU",
+  country: 'AU',
   population: 1000000,
   timezone: 36000,
   sunrise: 1662840056,
@@ -25,8 +25,8 @@ export const currentWeatherData: CurrentWeather = {
   },
   ts: 1662876000,
   wind: { speed: 2.73, deg: 116, gust: 3.02 },
-  weatherInfo: "Clear",
-  icon: "01d",
+  weatherInfo: 'Clear',
+  icon: '01d',
 };
 
 export const mockForecastData: CurrentWeather[] = [
@@ -44,8 +44,8 @@ export const mockForecastData: CurrentWeather[] = [
     },
     ts: 1662876000,
     wind: { speed: 2.73, deg: 116, gust: 3.02 },
-    weatherInfo: "Clear",
-    icon: "01d",
+    weatherInfo: 'Clear',
+    icon: '01d',
   },
   {
     currentTemp: {
@@ -61,8 +61,8 @@ export const mockForecastData: CurrentWeather[] = [
     },
     ts: 1662886800,
     wind: { speed: 1.22, deg: 230, gust: 3.48 },
-    weatherInfo: "Clear",
-    icon: "01n",
+    weatherInfo: 'Clear',
+    icon: '01n',
   },
   {
     currentTemp: {
@@ -78,8 +78,8 @@ export const mockForecastData: CurrentWeather[] = [
     },
     ts: 1662897600,
     wind: { speed: 4.17, deg: 255, gust: 6.64 },
-    weatherInfo: "Clear",
-    icon: "01n",
+    weatherInfo: 'Clear',
+    icon: '01n',
   },
   {
     currentTemp: {
@@ -95,8 +95,8 @@ export const mockForecastData: CurrentWeather[] = [
     },
     ts: 1662908400,
     wind: { speed: 4.15, deg: 261, gust: 7.11 },
-    weatherInfo: "Clear",
-    icon: "01n",
+    weatherInfo: 'Clear',
+    icon: '01n',
   },
   {
     currentTemp: {
@@ -112,8 +112,8 @@ export const mockForecastData: CurrentWeather[] = [
     },
     ts: 1662919200,
     wind: { speed: 4.75, deg: 264, gust: 8.6 },
-    weatherInfo: "Clear",
-    icon: "01n",
+    weatherInfo: 'Clear',
+    icon: '01n',
   },
 ];
 

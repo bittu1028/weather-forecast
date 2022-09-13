@@ -1,5 +1,5 @@
-import React from "react";
-import { StyledErrorContainer, StyledErrorMessage, StyledErrorTitle } from "./StyledError";
+import React from 'react';
+import { StyledErrorContainer, StyledErrorMessage, StyledErrorTitle } from './StyledError';
 
 interface INotFoundProps {
   errorMessage: string;

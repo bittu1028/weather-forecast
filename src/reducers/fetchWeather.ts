@@ -1,13 +1,13 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { City, CurrentWeather, List, Root } from "../models/weather.model";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { City, CurrentWeather, List, Root } from '../models/weather.model';
 import {
   getCurrentWeatherData,
   getForecastData,
-} from "../services/weatherService";
+} from '../services/weatherService';
 
 // fetching current weather data and forecast data parallely
 export const fetchWeather = createAsyncThunk(
-  "weather/fetchWeather",
+  'weather/fetchWeather',
   async (city: string, { rejectWithValue }) => {
     try {
       const res = await Promise.all([
@@ -15,19 +15,19 @@ export const fetchWeather = createAsyncThunk(
         getForecastData(city),
       ]);
       // success
-      if (res[0].cod === 200 && res[1].cod === "200") {
+      if (res[0].cod === 200 && res[1].cod === '200') {
         return res;
       }
       // not found
-      if (res[0].cod === 404 || res[0].cod === "404") {
+      if (res[0].cod === 404 || res[0].cod === '404') {
         return rejectWithValue(res[0].message);
       }
       // some error occured
       if (res[0].cod > 400 || res[1].cod > 400) {
-        return rejectWithValue("Something Went Wrong");
+        return rejectWithValue('Something Went Wrong');
       }
     } catch {
-      return rejectWithValue("Error");
+      return rejectWithValue('Error');
     }
   }
 );

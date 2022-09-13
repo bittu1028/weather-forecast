@@ -1,10 +1,10 @@
-import React, { KeyboardEvent } from "react";
+import React, { KeyboardEvent } from 'react';
 import {
   StyledButton,
   StyledInput,
   StyledLogo,
   StyledSearchBox,
-} from "./StyledSearchBox";
+} from './StyledSearchBox';
 
 interface ISearch {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;

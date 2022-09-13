@@ -9,8 +9,8 @@ export const mockTransFormedCurrentWeather = {
   },
   ts: 1662961179,
   wind: { speed: 4.63, deg: 120 },
-  weatherInfo: "Clear",
-  icon: "01d",
+  weatherInfo: 'Clear',
+  icon: '01d',
 };
 export const mockTransFormedForecast = [
   {
@@ -27,8 +27,8 @@ export const mockTransFormedForecast = [
     },
     ts: 1662994800,
     wind: { speed: 4.66, deg: 223, gust: 7.23 },
-    weatherInfo: "Rain",
-    icon: "10n",
+    weatherInfo: 'Rain',
+    icon: '10n',
   },
   {
     currentTemp: {
@@ -44,8 +44,8 @@ export const mockTransFormedForecast = [
     },
     ts: 1663081200,
     wind: { speed: 3.66, deg: 218, gust: 5.21 },
-    weatherInfo: "Clouds",
-    icon: "04n",
+    weatherInfo: 'Clouds',
+    icon: '04n',
   },
   {
     currentTemp: {
@@ -61,8 +61,8 @@ export const mockTransFormedForecast = [
     },
     ts: 1663167600,
     wind: { speed: 2.22, deg: 337, gust: 3.27 },
-    weatherInfo: "Clouds",
-    icon: "04n",
+    weatherInfo: 'Clouds',
+    icon: '04n',
   },
   {
     currentTemp: {
@@ -78,8 +78,8 @@ export const mockTransFormedForecast = [
     },
     ts: 1663254000,
     wind: { speed: 4.01, deg: 349, gust: 8.12 },
-    weatherInfo: "Rain",
-    icon: "10n",
+    weatherInfo: 'Rain',
+    icon: '10n',
   },
   {
     currentTemp: {
@@ -95,16 +95,16 @@ export const mockTransFormedForecast = [
     },
     ts: 1663340400,
     wind: { speed: 4.49, deg: 345, gust: 8.99 },
-    weatherInfo: "Clouds",
-    icon: "03n",
+    weatherInfo: 'Clouds',
+    icon: '03n',
   },
 ];
 
 export const mockTransformedCityInfo = {
   id: 2147714,
-  name: "Sydney",
+  name: 'Sydney',
   coord: { lat: -33.8679, lon: 151.2073 },
-  country: "AU",
+  country: 'AU',
   population: 1000000,
   timezone: 36000,
   sunrise: 1662926372,

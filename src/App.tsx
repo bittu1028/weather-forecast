@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 // import './App.css';
-import "./styles/style.scss";
+import './styles/style.scss';
 import { AppStyles } from './StyledApp';
-import { ThemeProvider } from "styled-components";
-import { theme } from "./styles/theme";
-import HomePage from "./container/HomePage";
+import { ThemeProvider } from 'styled-components';
+import { theme } from './styles/theme';
+import HomePage from './container/HomePage';
 
 function App() {
   return (
