@@ -35,11 +35,15 @@ button:focus {
     outline: none;
 }   
 
+textarea:focus, input:focus{
+    outline: none;
+}
 
 input {
     border: none !important;
     position: relative;
     padding: 1.2rem;
+    
 }
 
 `;
