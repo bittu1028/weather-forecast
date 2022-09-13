@@ -58,7 +58,7 @@ describe('weatherReducer', () => {
 
   test('sets the currentWeather, forecast, cityInfo and list when fetchweather is fulfilled', () => {
     jest.useFakeTimers();
-    jest.setSystemTime(new Date('2022/09/13 22:11:29'));
+    jest.setSystemTime(new Date('2022/09/14'));
     const outputState = {
       currentWeather: mockTransFormedCurrentWeather,
       forecast: mockTransFormedForecast,
