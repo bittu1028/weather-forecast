@@ -13,7 +13,6 @@ export const fetchWeather = createAsyncThunk(
   'weather/fetchWeather',
   async (data:data, { rejectWithValue }) => {
     const {location:city, currentUnit} = data;
-    console.log(city, currentUnit);
     try {
       const res = await Promise.all([getCurrentWeatherData(city, currentUnit), getForecastData(city, currentUnit)]);
       // success
