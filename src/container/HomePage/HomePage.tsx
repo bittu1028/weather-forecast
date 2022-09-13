@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../redux/store';
 import { fetchWeather } from '../../redux/fetchWeather';
 import { NotFoundError } from '../../shared/error/NotFound';
+import { StyledContent } from './StyledHomePage';
 
 const HomePage = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -65,7 +66,7 @@ const HomePage = () => {
           onSearchWeather={onSearchWeather}
           searchQuery={searchQuery}
         />
-        <div className='app-content'>
+        <StyledContent>
           {isError ? <NotFoundError errorMessage={errorMessage} /> : null}
           {!isLoading && currentWeather && cityInfo && !isError && (
             <React.Fragment>
@@ -73,7 +74,7 @@ const HomePage = () => {
               {forecast.length !== 0 && <Forecast forecast={forecast} />}
             </React.Fragment>
           )}
-        </div>
+        </StyledContent>
       </ErrorBoundary>
     </>
   );
