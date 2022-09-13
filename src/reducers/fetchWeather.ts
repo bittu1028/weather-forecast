@@ -5,6 +5,7 @@ import {
   getForecastData,
 } from "../services/weatherService";
 
+// fetching current weather data and forecast data parallely
 export const fetchWeather = createAsyncThunk(
   "weather/fetchWeather",
   async (city: string, { rejectWithValue }) => {
@@ -13,15 +14,15 @@ export const fetchWeather = createAsyncThunk(
         getCurrentWeatherData(city),
         getForecastData(city),
       ]);
-
+      // success
       if (res[0].cod === 200 && res[1].cod === "200") {
         return res;
       }
-
+      // not found
       if (res[0].cod === 404 || res[0].cod === "404") {
         return rejectWithValue(res[0].message);
       }
-
+      // some error occured
       if (res[0].cod > 400 || res[1].cod > 400) {
         return rejectWithValue("Something Went Wrong");
       }
@@ -31,6 +32,7 @@ export const fetchWeather = createAsyncThunk(
   }
 );
 
+// transforming weather data to desired formmat
 export const transformWeatherData = (
   res: any
 ): {
@@ -48,14 +50,15 @@ export const transformWeatherData = (
     wind: weather.wind,
     weatherInfo: weather.weather[0].main,
     icon: weather.weather[0].icon,
-    time: weather.dt_txt,
   };
 
   const finalForecastData: CurrentWeather[] = [];
-  let currentDate:number =  new Date().getDate();
+  let currentDate:Date =  new Date();
 
   forecast?.list.forEach((item: List) => {
-      const foreCastDate = new Date(item.dt * 1000).getDate();
+      // since we have to pay api for daily call i am fetching 3 hours interval data for 5 days 
+      // filter hourly data just to display daily data
+      const foreCastDate = new Date(item.dt * 1000);
       if(foreCastDate > currentDate) {
         currentDate = foreCastDate;
         finalForecastData.push({
@@ -64,7 +67,6 @@ export const transformWeatherData = (
           wind: item.wind,
           weatherInfo: item.weather[0].main,
           icon: item.weather[0].icon,
-          time: item.dt_txt,
         })
       }
       

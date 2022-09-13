@@ -29,7 +29,6 @@ export const mockTransFormedForecast = [
     wind: { speed: 4.66, deg: 223, gust: 7.23 },
     weatherInfo: "Rain",
     icon: "10n",
-    time: "2022-09-12 15:00:00",
   },
   {
     currentTemp: {
@@ -47,7 +46,6 @@ export const mockTransFormedForecast = [
     wind: { speed: 3.66, deg: 218, gust: 5.21 },
     weatherInfo: "Clouds",
     icon: "04n",
-    time: "2022-09-13 15:00:00",
   },
   {
     currentTemp: {
@@ -65,7 +63,6 @@ export const mockTransFormedForecast = [
     wind: { speed: 2.22, deg: 337, gust: 3.27 },
     weatherInfo: "Clouds",
     icon: "04n",
-    time: "2022-09-14 15:00:00",
   },
   {
     currentTemp: {
@@ -83,7 +80,6 @@ export const mockTransFormedForecast = [
     wind: { speed: 4.01, deg: 349, gust: 8.12 },
     weatherInfo: "Rain",
     icon: "10n",
-    time: "2022-09-15 15:00:00",
   },
   {
     currentTemp: {
@@ -101,7 +97,6 @@ export const mockTransFormedForecast = [
     wind: { speed: 4.49, deg: 345, gust: 8.99 },
     weatherInfo: "Clouds",
     icon: "03n",
-    time: "2022-09-16 15:00:00",
   },
 ];
 

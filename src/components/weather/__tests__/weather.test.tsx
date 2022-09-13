@@ -30,15 +30,15 @@ describe('Current Weather', () => {
     expect(text).toBeInTheDocument();
   });
 
-  test('Expect forecast to render for 5 days', async () => {
-    render(<Weather  
-        onToggle={onToggleFahrenheit}
-        weather={currentWeatherData}
-        cityInfo={mockCityData}
-    />);
-    const list = screen.getAllByRole('card-list-item');
-    console.log(list);
-    expect(list.length).toEqual(4);
-  });
+  // test('Expect forecast to render for 5 days', async () => {
+  //   render(<Weather  
+  //       onToggle={onToggleFahrenheit}
+  //       weather={currentWeatherData}
+  //       cityInfo={mockCityData}
+  //   />);
+  //   const list = screen.getAllByRole('card-list-item');
+  //   console.log(list);
+  //   expect(list.length).toEqual(4);
+  // });
   
 });

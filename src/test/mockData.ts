@@ -27,7 +27,6 @@ export const currentWeatherData: CurrentWeather = {
   wind: { speed: 2.73, deg: 116, gust: 3.02 },
   weatherInfo: "Clear",
   icon: "01d",
-  time: "2022-09-11 06:00:00",
 };
 
 export const mockForecastData: CurrentWeather[] = [
@@ -47,7 +46,6 @@ export const mockForecastData: CurrentWeather[] = [
     wind: { speed: 2.73, deg: 116, gust: 3.02 },
     weatherInfo: "Clear",
     icon: "01d",
-    time: "2022-09-11 06:00:00",
   },
   {
     currentTemp: {
@@ -65,7 +63,6 @@ export const mockForecastData: CurrentWeather[] = [
     wind: { speed: 1.22, deg: 230, gust: 3.48 },
     weatherInfo: "Clear",
     icon: "01n",
-    time: "2022-09-11 09:00:00",
   },
   {
     currentTemp: {
@@ -83,7 +80,6 @@ export const mockForecastData: CurrentWeather[] = [
     wind: { speed: 4.17, deg: 255, gust: 6.64 },
     weatherInfo: "Clear",
     icon: "01n",
-    time: "2022-09-11 12:00:00",
   },
   {
     currentTemp: {
@@ -101,7 +97,6 @@ export const mockForecastData: CurrentWeather[] = [
     wind: { speed: 4.15, deg: 261, gust: 7.11 },
     weatherInfo: "Clear",
     icon: "01n",
-    time: "2022-09-11 15:00:00",
   },
   {
     currentTemp: {
@@ -119,7 +114,6 @@ export const mockForecastData: CurrentWeather[] = [
     wind: { speed: 4.75, deg: 264, gust: 8.6 },
     weatherInfo: "Clear",
     icon: "01n",
-    time: "2022-09-11 18:00:00",
   },
 ];
 

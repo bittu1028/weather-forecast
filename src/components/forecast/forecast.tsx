@@ -8,9 +8,8 @@ import {
   StyledForecastTemp,
 } from "./StyledForecast";
 
-
-
 const Forecast = ({ forecast, isCelcius = true }: IForeCastProps) => {
+  
   const day: any = {
     0: "SUN",
     1: "MON",
@@ -23,10 +22,10 @@ const Forecast = ({ forecast, isCelcius = true }: IForeCastProps) => {
 
   return (
     <StyledForecastContainer>
-      {forecast.map((data: CurrentWeather, index: number) => {
-        const dayCode = new Date(data?.time).getDay();
+      {forecast.map((data: CurrentWeather) => {
+        const dayCode = new Date(data?.ts * 1000).getDay();
+        console.log(dayCode);
         return (
-          index !== 0 && (
             <StyledForecastItem role="card-list-item" key={data.ts}>
               <StyledForecastDate>{day[dayCode]}</StyledForecastDate>
               <img src={`http://openweathermap.org/img/w/${data.icon}.png`} alt="Icon" />
@@ -39,7 +38,6 @@ const Forecast = ({ forecast, isCelcius = true }: IForeCastProps) => {
               </StyledForecastTemp>
             </StyledForecastItem>
           )
-        );
       })}
     </StyledForecastContainer>
   );

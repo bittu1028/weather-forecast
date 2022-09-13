@@ -30,6 +30,7 @@ const weatherSlice = createSlice({
         state.isLoading = true
       })
       .addCase(fetchWeather.fulfilled, (state, action) => {
+        // transforming currentweather and forecast data
         const res = transformWeatherData(action.payload);
         state.currentWeather = res.weather;
         state.forecast = res.forecast;
@@ -40,10 +41,9 @@ const weatherSlice = createSlice({
 
       })
       .addCase(fetchWeather.rejected, (state, action) => {
-        console.log(action, 'action');
         state.isError = true;
         state.isLoading = false;
-        state.errorMessage = 'test' ;
+        state.errorMessage =  action.payload as string ;
       });
   },
 });

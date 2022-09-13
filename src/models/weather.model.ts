@@ -73,7 +73,6 @@ export interface CurrentWeather {
   icon: string;
   wind: Wind;
   weatherInfo: string;
-  time: string;
 }
 
 export interface forecastWeather {}

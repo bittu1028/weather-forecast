@@ -1,3 +1,4 @@
+// different size of device
 const size = {
   mobile: "320px",
   tablet: "768px",
@@ -5,6 +6,7 @@ const size = {
   desktop: "2560px",
 }
 
+// data for media query
 export const device = {
   mobile: `(max-width: ${size.mobile})`,
   tablet: `(max-width: ${size.tablet})`,

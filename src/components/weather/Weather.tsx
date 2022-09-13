@@ -20,7 +20,7 @@ const Weather = ({
   isCelcius = true,
   cityInfo,
 }: WeatherProp) => {
-  const { currentTemp, weatherInfo, time, wind } = weather;
+  const { currentTemp, weatherInfo, wind } = weather;
   return (
     <StyledWeatherContainer>
       <StyledLocation>
