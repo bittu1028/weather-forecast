@@ -14,7 +14,7 @@ export const StyledForecastContainer = styled.div`
 
   @media ${device.mobile} {
     flex-direction: column;
-    margin-top: 0;
+    margin-top: 20px;
   }
 `;
 

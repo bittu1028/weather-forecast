@@ -1,8 +1,7 @@
-const BASE_URL = 'https://api.openweathermap.org/data/2.5';
 
 // fetch current weather data
 export const getCurrentWeatherData = async (city: string, unit: string) => {
-  const url = `${BASE_URL}/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=${unit}`;
+  const url = `${process.env.REACT_APP_BASEURL}/weather?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=${unit}`;
   return await fetch(url)
     .then((data) => data.json())
     .then((result) => result);
@@ -10,7 +9,7 @@ export const getCurrentWeatherData = async (city: string, unit: string) => {
 
 // fetch forecast weather data
 export const getForecastData = async (city: string, unit:string) => {
-  const url = `${BASE_URL}/forecast?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=${unit}`;
+  const url = `${process.env.REACT_APP_BASEURL}/forecast?q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&units=${unit}`;
   return await fetch(url)
     .then((data) => data.json())
     .then((result) => result);

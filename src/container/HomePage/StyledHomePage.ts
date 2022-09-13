@@ -9,6 +9,7 @@ export const StyledContent = styled.div`
   align-items: center;
   margin: auto;
   padding: $xl-size;
+  margin-bottom: 20px
   text-align: left;
 
   @media ${device.tablet} {
