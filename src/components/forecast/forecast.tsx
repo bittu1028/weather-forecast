@@ -8,7 +8,7 @@ import {
   StyledForecastTemp,
 } from './StyledForecast';
 
-const Forecast = ({ forecast, isCelcius = true }: IForeCastProps) => {
+const Forecast = ({ forecast }: IForeCastProps) => {
   const day: any = {
     0: 'SUN',
     1: 'MON',
@@ -29,12 +29,7 @@ const Forecast = ({ forecast, isCelcius = true }: IForeCastProps) => {
             <img src={`http://openweathermap.org/img/w/${data.icon}.png`} alt='Icon' />
             <StyledForecastDate>{data.weatherInfo}</StyledForecastDate>
             <StyledForecastTemp>
-              {isCelcius
-                ? `${Math.round(data?.currentTemp?.temp_max)}/${Math.round(
-                    data?.currentTemp?.temp_min
-                  )}`
-                : Math.round(data.currentTemp.temp * (9 / 5) + 32)}
-              <span>°</span>
+              {`${Math.round(data?.currentTemp?.temp_max)}/${Math.round(data?.currentTemp?.temp_min)}`}
             </StyledForecastTemp>
           </StyledForecastItem>
         );

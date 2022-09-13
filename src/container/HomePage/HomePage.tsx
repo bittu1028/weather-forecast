@@ -10,13 +10,16 @@ import { AppDispatch, RootState } from '../../redux/store';
 import { fetchWeather } from '../../redux/fetchWeather';
 import { NotFoundError } from '../../shared/error/NotFound';
 import { StyledContent } from './StyledHomePage';
+import Units from '../../components/units/Units';
+
+const currentCity = 'Sydney'
 
 const HomePage = () => {
   const dispatch = useDispatch<AppDispatch>();
   // state for search query
   const [searchQuery, setSearchQuery] = useState<string>('');
   // to toggle format of temperature
-  const [isCelcius, setIsCelcius] = useState<boolean>(false);
+  const [unit, setUnit] = useState<string>('metric');
   // reducers data
   const { currentWeather, forecast, isLoading, cityInfo, isError, errorMessage } = useSelector(
     (state: RootState) => state.weather
@@ -27,15 +30,15 @@ const HomePage = () => {
     setSearchQuery(input);
   };
 
-  const getWeatherData = useCallback(async (location: string) => {
+  const getWeatherData = useCallback(async (location: string, currentUnit:string = unit) => {
     // dispatching action to fetch data from open weather
-    dispatch(fetchWeather(location));
+    dispatch(fetchWeather({location, currentUnit}));
   }, []);
 
   useEffect(() => {
     // defaulting value to sydney
     // future enhanncements to use current location
-    getWeatherData('Sydney');
+    getWeatherData(currentCity);
   }, []);
 
   const onSearchWeather = () => {
@@ -51,8 +54,9 @@ const HomePage = () => {
     }
   };
   
-  const onToggleFahrenheit = () => {
-    setIsCelcius(!isCelcius);
+  const changeUnitSettings = (currentUnit:string) => {
+    setUnit(currentUnit);
+    getWeatherData(searchQuery || currentCity, currentUnit);
   };
 
   return (
@@ -67,10 +71,14 @@ const HomePage = () => {
           searchQuery={searchQuery}
         />
         <StyledContent>
+          <Units 
+              changeUnitSettings={changeUnitSettings}
+              unit={unit}
+          />
           {isError ? <NotFoundError errorMessage={errorMessage} /> : null}
           {!isLoading && currentWeather && cityInfo && !isError && (
             <React.Fragment>
-              <Weather onToggle={onToggleFahrenheit} weather={currentWeather} cityInfo={cityInfo} />
+              <Weather weather={currentWeather} cityInfo={cityInfo} />
               {forecast.length !== 0 && <Forecast forecast={forecast} />}
             </React.Fragment>
           )}

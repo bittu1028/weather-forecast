@@ -13,7 +13,7 @@ import {
 } from './StyledWeather';
 import { IWeatherProp } from './Weather.type';
 
-const Weather = ({ onToggle, weather, isCelcius = true, cityInfo }: IWeatherProp) => {
+const Weather = ({ weather, cityInfo }: IWeatherProp) => {
   const { currentTemp, weatherInfo, wind } = weather;
   return (
     <StyledWeatherContainer>
@@ -28,22 +28,13 @@ const Weather = ({ onToggle, weather, isCelcius = true, cityInfo }: IWeatherProp
           {/* <i className={`wi ${weatherbitIcons[weatherIconCode]}`} /> */}
           <TemperatureContainer>
             <StyledHeader>
-              {isCelcius ? `${currentTemp?.temp} °C` : `${currentTemp?.temp} °F`}
+              {currentTemp?.temp} 
             </StyledHeader>
-            <div
-              className='temperature-toggle'
-              onClick={onToggle}
-              style={{
-                color: isCelcius ? 'rgba(255, 255, 255, .7)' : '#adff2f',
-              }}
-            >
-              <span>{isCelcius ? '°F' : '°C'}</span>
-            </div>
           </TemperatureContainer>
         </StyledTemperatureWrapper>
         <StyledTemperatureInfoContainer>
           <H4>
-            <span>Feels Like:</span> {`${currentTemp?.feels_like} °C` }
+            <span>Feels Like:</span>{currentTemp?.feels_like}
           </H4>
           <H4>
             <span>Weather:</span> {weatherInfo}
@@ -55,7 +46,7 @@ const Weather = ({ onToggle, weather, isCelcius = true, cityInfo }: IWeatherProp
             <span>Humidity:</span> {currentTemp?.humidity}%
           </H4> 
           <H4>
-            <span>Max:</span> {`${currentTemp?.temp_max} °C` }
+            <span>Max:</span> {currentTemp?.temp_max}
           </H4>
         </StyledTemperatureInfoContainer>
       </StyledWeatherWrapper>

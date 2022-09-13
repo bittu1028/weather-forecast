@@ -3,12 +3,19 @@ import { City, CurrentWeather, List, WeatherData } from '../models/weather.model
 import { getCurrentWeatherData, getForecastData } from '../services/weatherService';
 import { isGreaterThanCurrentDate } from '../utils/dateUtils';
 
+interface data {
+  location:string;
+  currentUnit: string;
+}
+
 // fetching current weather data and forecast data parallely
 export const fetchWeather = createAsyncThunk(
   'weather/fetchWeather',
-  async (city: string, { rejectWithValue }) => {
+  async (data:data, { rejectWithValue }) => {
+    const {location:city, currentUnit} = data;
+    console.log(city, currentUnit);
     try {
-      const res = await Promise.all([getCurrentWeatherData(city), getForecastData(city)]);
+      const res = await Promise.all([getCurrentWeatherData(city, currentUnit), getForecastData(city, currentUnit)]);
       // success
       if (res[0].cod === 200 && res[1].cod === '200') {
         return res;
