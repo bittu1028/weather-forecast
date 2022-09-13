@@ -1,7 +1,6 @@
-import { CurrentWeather } from "../../models/weather.model";
-
+import { CurrentWeather } from '../../models/weather.model'
 
 export interface IForeCastProps {
-    forecast: CurrentWeather[];
-    isCelcius?: boolean;
+  forecast: CurrentWeather[]
+  isCelcius?: boolean
 }

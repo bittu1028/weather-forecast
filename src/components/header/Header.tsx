@@ -1,8 +1,7 @@
-import React, { useRef } from "react";
-import { IHeaderProps } from "./Header.types";
-import {StyledHeaderContainer, StyledHeaderWrapper } from "./StyledHeader";
-import SearchBox from '../../shared/Input/SearchBox';
-
+import React, { useRef } from 'react'
+import { IHeaderProps } from './Header.types'
+import { StyledHeaderContainer, StyledHeaderWrapper } from './StyledHeader'
+import SearchBox from '../../shared/Input/SearchBox'
 
 const Header = ({
   onChange,
@@ -11,16 +10,12 @@ const Header = ({
   onSearchWeather,
   isSearching,
 }: IHeaderProps) => {
-  const header = useRef(null);
-  const onFocusChange = (e: any) => {
-    e.target.select();
-  };
-
+  const header = useRef(null)
 
   return (
     <StyledHeaderContainer ref={header}>
-        <StyledHeaderWrapper>
-        <SearchBox  
+      <StyledHeaderWrapper>
+        <SearchBox
           onChange={onChange}
           onKeyDown={onKeyDown}
           onSubmit={onSearchWeather}
@@ -29,7 +24,7 @@ const Header = ({
         />
       </StyledHeaderWrapper>
     </StyledHeaderContainer>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
