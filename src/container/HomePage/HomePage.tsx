@@ -41,7 +41,7 @@ const HomePage = () => {
     getWeatherData(currentCity);
   }, []);
 
-  const onSearchWeather = () => {
+  const onSubmit = () => {
     if (searchQuery.length !== 0 && !isLoading) {
       getWeatherData(searchQuery);
     }
@@ -50,7 +50,7 @@ const HomePage = () => {
   // call api if user press enter key on search box
   const onKeyEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.keyCode === 13) {
-      onSearchWeather();
+      onSubmit();
     }
   };
   
@@ -67,7 +67,7 @@ const HomePage = () => {
           isSearching={isLoading}
           onChange={onSearchQueryChange}
           onKeyDown={onKeyEnter}
-          onSearchWeather={onSearchWeather}
+          onSearchWeather={onSubmit}
           searchQuery={searchQuery}
         />
         <StyledContent>
