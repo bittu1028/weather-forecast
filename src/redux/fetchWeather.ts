@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { City, CurrentWeather, List, WeatherData } from '../models/weather.model';
 import { getCurrentWeatherData, getForecastData } from '../services/weatherService';
+import { isGreaterThanCurrentDate } from '../utils/dateUtils';
 
 // fetching current weather data and forecast data parallely
 export const fetchWeather = createAsyncThunk(
@@ -46,14 +47,13 @@ export const transformWeatherData = (
   };
 
   const finalForecastData: CurrentWeather[] = [];
-  let currentDate: Date = new Date();
+  let currentDate:Date = new Date();
 
   forecast?.list.forEach((item: List) => {
     // since we have to pay api for daily call i am fetching 3 hours interval data for 5 days
     // filter hourly data just to display daily data
-    const foreCastDate = new Date(item.dt * 1000);
-    if (foreCastDate > currentDate) {
-      currentDate = foreCastDate;
+    if (isGreaterThanCurrentDate(currentDate, item.dt)) {
+      currentDate = new Date(item.dt * 1000)
       finalForecastData.push({
         currentTemp: item.main,
         ts: item.dt,
