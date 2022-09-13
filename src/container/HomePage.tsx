@@ -14,15 +14,9 @@ function HomePage() {
   const dispatch = useDispatch<AppDispatch>();
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isCelcius, setIsCelcius] = useState<boolean>(false);
-  const { 
-    currentWeather, 
-    forecast, 
-    isLoading, 
-    cityInfo, 
-    isError,
-    errorMessage 
-  } =
-  useSelector((state: RootState) => state.weather);
+  const { currentWeather, forecast, isLoading, cityInfo, isError, errorMessage } = useSelector(
+    (state: RootState) => state.weather
+  );
 
   const onSearchQueryChange = (e: any) => {
     const input = e.target.value.toLowerCase().trimStart();
@@ -64,17 +58,11 @@ function HomePage() {
           onSearchWeather={onSearchWeather}
           searchQuery={searchQuery}
         />
-        <div className="app-content">
-          {
-            isError ? <NotFoundError errorMessage={errorMessage}/> : null
-          }
+        <div className='app-content'>
+          {isError ? <NotFoundError errorMessage={errorMessage} /> : null}
           {!isLoading && currentWeather && cityInfo && !isError && (
             <React.Fragment>
-              <Weather
-                onToggle={onToggleFahrenheit}
-                weather={currentWeather}
-                cityInfo={cityInfo}
-              />
+              <Weather onToggle={onToggleFahrenheit} weather={currentWeather} cityInfo={cityInfo} />
               {forecast.length !== 0 && <Forecast forecast={forecast} />}
             </React.Fragment>
           )}

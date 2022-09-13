@@ -1,7 +1,11 @@
 import weatherReducer from '../weatherReducer';
 import { fetchWeather } from '../fetchWeather';
 import { mockCombinedRawData } from '../../test/mockApiData';
-import { mockTransFormedCurrentWeather, mockTransFormedForecast, mockTransformedCityInfo } from '../../test/mockTransformedApiData';
+import {
+  mockTransFormedCurrentWeather,
+  mockTransFormedForecast,
+  mockTransformedCityInfo,
+} from '../../test/mockTransformedApiData';
 
 describe('weatherReducer', () => {
   const initialState = {
@@ -56,12 +60,12 @@ describe('weatherReducer', () => {
     jest.useFakeTimers();
     jest.setSystemTime(new Date('2022/09/12'));
     const outputState = {
-        currentWeather: mockTransFormedCurrentWeather,
-        forecast: mockTransFormedForecast,
-        cityInfo: mockTransformedCityInfo,
-        errorMessage: '',
-        isError: false,
-        isLoading: false,
+      currentWeather: mockTransFormedCurrentWeather,
+      forecast: mockTransFormedForecast,
+      cityInfo: mockTransformedCityInfo,
+      errorMessage: '',
+      isError: false,
+      isLoading: false,
     };
     const action = {
       type: fetchWeather.fulfilled.type,

@@ -1,10 +1,5 @@
 import React, { KeyboardEvent } from 'react';
-import {
-  StyledButton,
-  StyledInput,
-  StyledLogo,
-  StyledSearchBox,
-} from './StyledSearchBox';
+import { StyledButton, StyledInput, StyledLogo, StyledSearchBox } from './StyledSearchBox';
 
 interface ISearch {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -14,17 +9,22 @@ interface ISearch {
   isSearching?: boolean;
 }
 
-const SearchBox: React.FC<ISearch> = ({ searchQuery, onChange, onSubmit, isSearching, onKeyDown }) => {
-
+const SearchBox: React.FC<ISearch> = ({
+  searchQuery,
+  onChange,
+  onSubmit,
+  isSearching,
+  onKeyDown,
+}) => {
   return (
     <>
       <StyledSearchBox>
         <StyledInput
-          className="form-control"
+          className='form-control'
           onChange={onChange}
           onKeyDown={onKeyDown}
-          placeholder="Search for city"
-          type="text"
+          placeholder='Search for city'
+          type='text'
           readOnly={isSearching}
           value={searchQuery}
         />

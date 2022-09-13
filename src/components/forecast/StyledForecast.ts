@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { device } from '../../utils/device'
+import styled from 'styled-components';
+import { device } from '../../utils/device';
 
 export const StyledForecastContainer = styled.div`
   width: 100%;
@@ -16,7 +16,7 @@ export const StyledForecastContainer = styled.div`
     flex-direction: column;
     margin-top: 0;
   }
-`
+`;
 
 export const StyledForecastItem = styled.div`
   color: #000;
@@ -41,7 +41,7 @@ export const StyledForecastItem = styled.div`
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding: ${(props) => props.theme.ms} 0;
   }
-`
+`;
 
 export const StyledForecastDate = styled.h4`
   font-weight: 600;
@@ -50,7 +50,7 @@ export const StyledForecastDate = styled.h4`
     order: 1;
     margin: 0;
   }
-`
+`;
 
 export const StyledForecastTemp = styled.h2`
   span {
@@ -60,4 +60,4 @@ export const StyledForecastTemp = styled.h2`
   @media ${device.mobile} {
     order: 3;
   }
-`
+`;

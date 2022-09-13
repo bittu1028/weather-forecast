@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { fetchWeather, transformWeatherData } from './fetchWeather';
 import { City, CurrentWeather } from '../models/weather.model';
 
-export interface WeatherState  {
+export interface WeatherState {
   currentWeather: CurrentWeather | null;
   forecast: CurrentWeather[] | [];
   cityInfo: City | null;
@@ -17,7 +17,7 @@ const initialState: WeatherState = {
   cityInfo: null,
   errorMessage: '',
   isError: false,
-  isLoading: false
+  isLoading: false,
 };
 
 const weatherSlice = createSlice({
@@ -26,8 +26,8 @@ const weatherSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchWeather.pending, state => {
-        state.isLoading = true
+      .addCase(fetchWeather.pending, (state) => {
+        state.isLoading = true;
       })
       .addCase(fetchWeather.fulfilled, (state, action) => {
         // transforming currentweather and forecast data
@@ -38,12 +38,11 @@ const weatherSlice = createSlice({
         state.errorMessage = '';
         state.cityInfo = res.cityInfo;
         state.isLoading = false;
-
       })
       .addCase(fetchWeather.rejected, (state, action) => {
         state.isError = true;
         state.isLoading = false;
-        state.errorMessage =  action.payload as string ;
+        state.errorMessage = action.payload as string;
       });
   },
 });

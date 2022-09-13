@@ -31,4 +31,3 @@ export const StyledHeaderWrapper = styled.div`
     padding: 0 $l-size;
   }
 `;
-

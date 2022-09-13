@@ -18,9 +18,6 @@ export const Error = ({ error, resetErrorBoundary }: IErrorProps) => {
   );
 };
 
-export const ErrorHandler = (
-  error: Error,
-  info: { componentStack: string }
-) => {
+export const ErrorHandler = (error: Error, info: { componentStack: string }) => {
   console.error(error, 'error');
 };

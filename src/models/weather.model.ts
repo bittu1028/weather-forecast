@@ -74,5 +74,3 @@ export interface CurrentWeather {
   wind: Wind;
   weatherInfo: string;
 }
-
-export interface forecastWeather {}

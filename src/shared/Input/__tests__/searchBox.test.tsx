@@ -1,8 +1,6 @@
 // __tests__/searchBox.test.js
 import React from 'react';
-import {
-  render, fireEvent, screen,
-} from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import SearchInput from '../SearchBox';
 
@@ -26,9 +24,11 @@ describe('SearchBox', () => {
 
   test('onSubmit method to be called when submit button is clicked', async () => {
     render(<SearchInput onChange={onChange} onSubmit={onSubmit} />);
-    fireEvent.click(screen.getByRole('button', {
-        name: /submit/i
-    }));
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: /submit/i,
+      })
+    );
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 });

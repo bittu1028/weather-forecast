@@ -8,10 +8,10 @@ import HomePage from './container/HomePage';
 
 function App() {
   return (
-    <div className="App">
+    <div className='App'>
       <ThemeProvider theme={theme}>
-          <AppStyles />
-          <HomePage />
+        <AppStyles />
+        <HomePage />
       </ThemeProvider>
     </div>
   );

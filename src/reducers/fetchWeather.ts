@@ -1,19 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { City, CurrentWeather, List, Root } from '../models/weather.model';
-import {
-  getCurrentWeatherData,
-  getForecastData,
-} from '../services/weatherService';
+import { getCurrentWeatherData, getForecastData } from '../services/weatherService';
 
 // fetching current weather data and forecast data parallely
 export const fetchWeather = createAsyncThunk(
   'weather/fetchWeather',
   async (city: string, { rejectWithValue }) => {
     try {
-      const res = await Promise.all([
-        getCurrentWeatherData(city),
-        getForecastData(city),
-      ]);
+      const res = await Promise.all([getCurrentWeatherData(city), getForecastData(city)]);
       // success
       if (res[0].cod === 200 && res[1].cod === '200') {
         return res;
@@ -40,7 +34,6 @@ export const transformWeatherData = (
   forecast: CurrentWeather[];
   cityInfo: City;
 } => {
-
   const weather = res[0] as List;
   const forecast = res[1] as Root;
 
@@ -53,23 +46,22 @@ export const transformWeatherData = (
   };
 
   const finalForecastData: CurrentWeather[] = [];
-  let currentDate:Date =  new Date();
+  let currentDate: Date = new Date();
 
   forecast?.list.forEach((item: List) => {
-      // since we have to pay api for daily call i am fetching 3 hours interval data for 5 days 
-      // filter hourly data just to display daily data
-      const foreCastDate = new Date(item.dt * 1000);
-      if(foreCastDate > currentDate) {
-        currentDate = foreCastDate;
-        finalForecastData.push({
-          currentTemp: item.main,
-          ts: item.dt,
-          wind: item.wind,
-          weatherInfo: item.weather[0].main,
-          icon: item.weather[0].icon,
-        })
-      }
-      
+    // since we have to pay api for daily call i am fetching 3 hours interval data for 5 days
+    // filter hourly data just to display daily data
+    const foreCastDate = new Date(item.dt * 1000);
+    if (foreCastDate > currentDate) {
+      currentDate = foreCastDate;
+      finalForecastData.push({
+        currentTemp: item.main,
+        ts: item.dt,
+        wind: item.wind,
+        weatherInfo: item.weather[0].main,
+        icon: item.weather[0].icon,
+      });
+    }
   });
   return {
     weather: transformedCurrentWeather,

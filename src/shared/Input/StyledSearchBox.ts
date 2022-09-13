@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { device } from '../../utils/device';
-import {ReactComponent as SearchIconSvg} from '../../asset/icon/search.svg';
-
+import { ReactComponent as SearchIconSvg } from '../../asset/icon/search.svg';
 
 export const StyledSearchBox = styled.div`
   display: flex;
@@ -27,23 +26,22 @@ export const StyledSearchBox = styled.div`
 `;
 
 export const StyledInput = styled.input`
-    color: #000;
-    ::placeholder {
-      color: green !important;
-    }
-    width: 100%;
-`
-
-export const StyledButton = styled.button`
-    border: none;
-    cursor: pointer;
-    background-color: transparent;
-    height: 100%;
-    display: contents;
-    &:hover svg {
-    }
+  color: #000;
+  ::placeholder {
+    color: green !important;
+  }
+  width: 100%;
 `;
 
+export const StyledButton = styled.button`
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  height: 100%;
+  display: contents;
+  &:hover svg {
+  }
+`;
 
 export const StyledLogo = styled(SearchIconSvg)`
   margin-left: 1.2rem;

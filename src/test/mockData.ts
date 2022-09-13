@@ -116,4 +116,3 @@ export const mockForecastData: CurrentWeather[] = [
     icon: '01n',
   },
 ];
-
