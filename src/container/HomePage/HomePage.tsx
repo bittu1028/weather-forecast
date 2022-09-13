@@ -6,8 +6,8 @@ import Loader from '../../shared/loader/Loader';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Error, ErrorHandler } from '../../shared/error/Error';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../../reducers/store';
-import { fetchWeather } from '../../reducers/fetchWeather';
+import { AppDispatch, RootState } from '../../redux/store';
+import { fetchWeather } from '../../redux/fetchWeather';
 import { NotFoundError } from '../../shared/error/NotFound';
 
 const HomePage = () => {

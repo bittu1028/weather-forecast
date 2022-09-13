@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { Provider } from 'react-redux';
 import HomePage from '../HomePage';
-import store from '../../../reducers/store';
+import store from '../../../redux/store';
 
 const renderHomePage = () =>
   render(
