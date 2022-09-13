@@ -1,5 +1,5 @@
 ## Setup
-Create a file called .env in the root of the weather-forecast project. Add the following code in the file.\
+Create a file called .env in the root of the weather-forecast project. Add the following code in the file.
 
 ```REACT_APP_OPENWEATHER_API_BASEURL = "https://api.openweathermap.org/data/2.5/onecall"```
 
