@@ -43,7 +43,7 @@ const Weather = ({ onToggle, weather, isCelcius = true, cityInfo }: IWeatherProp
         </StyledTemperatureWrapper>
         <StyledTemperatureInfoContainer>
           <H4>
-            <span>Timezone:</span> {cityInfo?.country}
+            <span>Feels Like:</span> {`${currentTemp?.feels_like} °C` }
           </H4>
           <H4>
             <span>Weather:</span> {weatherInfo}
@@ -53,6 +53,9 @@ const Weather = ({ onToggle, weather, isCelcius = true, cityInfo }: IWeatherProp
           </H4>
           <H4>
             <span>Humidity:</span> {currentTemp?.humidity}%
+          </H4> 
+          <H4>
+            <span>Max:</span> {`${currentTemp?.temp_max} °C` }
           </H4>
         </StyledTemperatureInfoContainer>
       </StyledWeatherWrapper>

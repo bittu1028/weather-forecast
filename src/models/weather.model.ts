@@ -1,4 +1,4 @@
-export interface Root {
+export interface WeatherData {
   cod: string;
   message: number;
   cnt: number;
@@ -8,7 +8,7 @@ export interface Root {
 
 export interface List {
   dt: number;
-  main: Main;
+  main: MainTemp;
   weather: Weather[];
   clouds: Clouds;
   wind: Wind;
@@ -18,7 +18,7 @@ export interface List {
   dt_txt: string;
 }
 
-export interface Main {
+export interface MainTemp {
   temp: number;
   feels_like: number;
   temp_min: number;
@@ -68,7 +68,7 @@ export interface Coord {
 }
 
 export interface CurrentWeather {
-  currentTemp: Main;
+  currentTemp: MainTemp;
   ts: number;
   icon: string;
   wind: Wind;

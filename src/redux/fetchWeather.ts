@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { City, CurrentWeather, List, Root } from '../models/weather.model';
+import { City, CurrentWeather, List, WeatherData } from '../models/weather.model';
 import { getCurrentWeatherData, getForecastData } from '../services/weatherService';
 
 // fetching current weather data and forecast data parallely
@@ -35,7 +35,7 @@ export const transformWeatherData = (
   cityInfo: City;
 } => {
   const weather = res[0] as List;
-  const forecast = res[1] as Root;
+  const forecast = res[1] as WeatherData;
 
   const transformedCurrentWeather: CurrentWeather = {
     currentTemp: weather.main,

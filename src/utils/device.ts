@@ -1,6 +1,6 @@
 // different size of device
 const size = {
-  mobile: '320px',
+  mobile: '480px',
   tablet: '768px',
   laptop: '1024px',
   desktop: '2560px',
