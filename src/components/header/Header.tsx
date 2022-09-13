@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { IHeaderProps } from './Header.types';
+import { IHeaderProps } from './Header.type';
 import { StyledHeaderContainer, StyledHeaderWrapper } from './StyledHeader';
 import SearchBox from '../../shared/Input/SearchBox';
 

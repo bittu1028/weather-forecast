@@ -11,9 +11,9 @@ import {
   TemperatureContainer,
   StyledImage,
 } from './StyledWeather';
-import { WeatherProp } from './Weather.types';
+import { IWeatherProp } from './Weather.type';
 
-const Weather = ({ onToggle, weather, isCelcius = true, cityInfo }: WeatherProp) => {
+const Weather = ({ onToggle, weather, isCelcius = true, cityInfo }: IWeatherProp) => {
   const { currentTemp, weatherInfo, wind } = weather;
   return (
     <StyledWeatherContainer>

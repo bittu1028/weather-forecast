@@ -4,7 +4,7 @@ import './styles/style.scss';
 import { AppStyles } from './StyledApp';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './styles/theme';
-import HomePage from './container/HomePage';
+import HomePage from './container/HomePage/HomePage';
 
 function App() {
   return (

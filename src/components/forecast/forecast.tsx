@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { CurrentWeather } from '../../models/weather.model';
-import { IForeCastProps } from './Forecast.types';
+import { IForeCastProps } from './Forecast.type';
 import {
   StyledForecastContainer,
   StyledForecastDate,
