@@ -18,7 +18,7 @@ function HomePage() {
     (state: RootState) => state.weather
   );
 
-  const onSearchQueryChange = (e: any) => {
+  const onSearchQueryChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value.toLowerCase().trimStart();
     setSearchQuery(input);
   };
@@ -37,7 +37,7 @@ function HomePage() {
     }
   };
 
-  const onKeyEnter = (e: any) => {
+  const onKeyEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.keyCode === 13) {
       onSearchWeather();
     }
