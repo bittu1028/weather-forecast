@@ -16,11 +16,7 @@ export const StyledSearchBox = styled.div`
   @media ${device.mobile} {
     width: 100%;
     position: absolute;
-    right: 0;
-    visibility: hidden;
-    top: 60px;
-    padding: 20px;
-    opacity: 0;
+    padding: 0 20px 0 20px;
     background: rgb(255, 255, 255);
   }
 `;
