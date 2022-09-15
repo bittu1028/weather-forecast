@@ -1,9 +1,13 @@
 ## Setup
+
+Run\
+```npm install```
+
 Create a file called .env in the root of the weather-forecast project. Add the following code in the file.
 
-```REACT_APP_OPENWEATHER_API_BASEURL = "https://api.openweathermap.org/data/2.5/onecall"```
+```REACT_APP_BASEURL = "https://api.openweathermap.org/data/2.5"```
 
-```REACT_APP_BASEURL = "YOUR_OPENWEATHERAPI_KEY"```
+```REACT_APP_WEATHER_API_KEY = "YOUR_OPENWEATHERAPI_KEY"```
 
 The app is using One Call API from OpenWeather API. To start the project you need an account and OpenWeather API Key. You can signup and get the key from here.
 
