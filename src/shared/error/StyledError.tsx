@@ -10,11 +10,8 @@ export const StyledErrorContainer = styled.div`
 `;
 
 export const StyledErrorTitle = styled.div`
-  font-family: 'Barlow', sans-serif;
   font-size: ${(props) => props.theme.ms};
   font-weight: 700;
 `;
 
-export const StyledErrorMessage = styled.div`
-  font-size: $caption-font-size;
-`;
+
