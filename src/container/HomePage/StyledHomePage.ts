@@ -8,7 +8,6 @@ export const StyledContent = styled.div`
   flex-direction: column;
   align-items: center;
   margin: auto;
-  padding: $xl-size;
   margin-bottom: 20px
   text-align: left;
 

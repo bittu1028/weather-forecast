@@ -10,8 +10,10 @@ export const StyledErrorContainer = styled.div`
 `;
 
 export const StyledErrorTitle = styled.div`
-  font-size: ${(props) => props.theme.ms};
+  font-size: ${(props) => props.theme.ls};
   font-weight: 700;
 `;
 
-
+export const StyledErrorMessage = styled.div`
+  font-size: ${(props) => props.theme.ls};
+`;
